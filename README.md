@@ -1,19 +1,31 @@
-import base64
+# TryHackMe | The Brochure - Hacker Holidays Day 0
 
-def decode_brochure_flag(encoded_str):
-    """Decode the Base64 string found in The Brochure challenge"""
-    try:
-        # The brochure hides data in Base64
-        decoded = base64.b64decode(encoded_str).decode('utf-8')
-        return decoded
-    except Exception as e:
-        return f"Error: {e}"
+**Room:** hh-thebrochure-081f3e36
+**Track:** Hacker Holidays Storyline: Act 0 - Recon
+**Category:** OSINT
+**Status:** Completed - 100%
 
-# Example from the room - you had:
-# VEhNe1YzckBzX2FDQzB1bnRfaDRzX2IzM25fZjB1bmQhfQ==
-# This decodes with CyberChef or python
+### Overview
+The Byte Lotus Hotel - The Brochure. First recon task for Hacker Holidays 2026.
 
-if __name__ == "__main__":
-    with open("encoded.txt", "r") as f:
-        data = f.read().strip()
-    print(decode_brochure_flag(data))
+### Methodology
+1. Opened the brochure PDF / image provided in the room
+2. Found hidden Base64 string in the brochure file
+3. Used CyberChef (From Base64) and Python to decode
+   - Tool: https://gchq.github.io/CyberChef/
+   - Command: `echo <string> | base64 -d`
+4. Verified flag format THM{...}
+
+### Tools
+- CyberChef
+- Python base64 module
+- TryHackMe AttackBox
+
+### Key Learning
+- Base64 encoding is common for hiding data in documents
+- Always check file metadata and hidden text in brochures
+
+### Proof
+![Room Completed 100%](assets/proof.png)
+
+Completed: 20 Oct 2026
